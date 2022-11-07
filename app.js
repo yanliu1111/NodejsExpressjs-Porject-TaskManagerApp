@@ -1,8 +1,10 @@
 import express from "express";
 const app = express();
-import { tasks } from "./routes/task.js";
+import { tasks } from "./routes/tasks.js";
 import { connectDB } from "./db/connect.js";
-require("dotenv").config();
+import env from "dotenv";
+env.config();
+
 //middleware, if we dont have that, we dont have data in req.body
 app.use(express.static("./public"));
 app.use(express.json());

@@ -1,5 +1,6 @@
 import express from "express";
-export const router = express.Router();
+const router = express.Router();
+export const tasks = router;
 
 import {
   getAllTasks, //getAllUsers --Top5
