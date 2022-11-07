@@ -1,15 +1,16 @@
-const express = require("express");
+import express from "express";
 const app = express();
-const tasks = require("./routes/task");
-const connectDB = require("./db/connect");
+import { tasks } from "./routes/task.js";
+import { connectDB } from "./db/connect.js";
 require("dotenv").config();
 //middleware, if we dont have that, we dont have data in req.body
+app.use(express.static("./public"));
 app.use(express.json());
 
 //routes
-app.get("/hello", (req, res) => {
-  res.send("Task Manager App");
-});
+// app.get("/hello", (req, res) => {
+//   res.send("Task Manager App");
+// });
 
 app.use("/api/v1/tasks", tasks);
 
